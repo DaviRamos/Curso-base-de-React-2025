@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+interface ICardProps {
+  title: string ;
+  children: React.ReactNode; 
+}
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const Card = ({ title, children }: ICardProps) => {
   return (
-    <>
+    <div style={{ border: '1px solid #ccc', padding: '10px', borderRadius: '5px' }}>
+      <span>Title: {title}</span>
+
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        {children}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+
+      <div>
+        Footer
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 
-export default App
+export function App() {
+
+  return (
+    <>
+      olá
+      <p>Card:</p>
+      <Card title="Card 1" children="Context 1"/>
+      <Card title="Card 2" children="Context 2"/>
+      <Card title="Card 3" children="Context 3"/>
+    </>
+  )
+  
+}
