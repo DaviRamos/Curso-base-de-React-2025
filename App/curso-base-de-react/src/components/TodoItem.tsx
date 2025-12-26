@@ -1,3 +1,5 @@
+import { Link } from 'react-router';
+
 import TodoItemStyles from "./TodoItem.module.css";
 
 interface ITodoItemProps {
@@ -11,9 +13,9 @@ interface ITodoItemProps {
 export const TodoItem = (props: ITodoItemProps) => {
   return (
     <li key={props.id} className={TodoItemStyles.Item}>
-        <span className={TodoItemStyles.Text}>
+        <Link to={`/detalhe/${props.id}`} className={TodoItemStyles.Text}>
             {props.label}
-        </span>
+        </Link>
       <div className={TodoItemStyles.ButtonsGroup}>
         <input
           type="checkbox"
