@@ -1,34 +1,21 @@
-interface ICardProps {
-  title: string ;
-  children: React.ReactNode; 
-}
+import { BrowserRouter, Route, Routes, Navigate } from "react-router";
 
-const Card = ({ title, children }: ICardProps) => {
-  return (
-    <div style={{ border: '1px solid #ccc', padding: '10px', borderRadius: '5px' }}>
-      <span>Title: {title}</span>
+import { AppLayout } from "./shared/Layout/AppLayout";
 
-      <div>
-        {children}
-      </div>
-
-      <div>
-        Footer
-      </div>
-    </div>
-  )
-}
+import { About } from "./pages/About";
+import { Home } from "./pages/Home";
 
 export function App() {
-
   return (
-    <>
-      olá
-      <p>Card:</p>
-      <Card title="Card 1" children="Context 1"/>
-      <Card title="Card 2" children="Context 2"/>
-      <Card title="Card 3" children="Context 3"/>
-    </>
-  )
-  
+    <BrowserRouter>
+      <AppLayout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/sobre" element={<About />} />
+
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </AppLayout>
+    </BrowserRouter>
+  );
 }
