@@ -13,7 +13,7 @@ interface ITodoItemProps {
 export const TodoItem = (props: ITodoItemProps) => {
   return (
     <li key={props.id} className={TodoItemStyles.Item}>
-        <Link to={`/detalhe/${props.id}`} className={TodoItemStyles.Text}>
+        <Link to={`/todos/detalhe/${props.id}`} className={TodoItemStyles.Text}>
             {props.label}
         </Link>
       <div className={TodoItemStyles.ButtonsGroup}>
